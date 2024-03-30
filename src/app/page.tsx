@@ -5,7 +5,7 @@ const Home = async () => {
   const pokemon = await getAllPokemon();
 
   return (
-    <main className="min-h-screen p-4 lg:p-24">
+    <main className="min-h-screen px-4 py-6 lg:px-24 lg:py-20">
       <PokemonCardList pokemon={pokemon} />
     </main>
   );
