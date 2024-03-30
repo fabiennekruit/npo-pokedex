@@ -75,6 +75,22 @@
   }
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+  font-family: "Mabry Pro";
+  font-weight: 400;
+  src: url("/fonts/mabry-pro/MabryPro-Regular.woff") format("woff"),
+    url("/fonts/mabry-pro/MabryPro-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Mabry Pro";
+  font-weight: 700;
+  src: url("/fonts/mabry-pro/MabryPro-Black.woff") format("woff"),
+    url("/fonts/mabry-pro/MabryPro-Black.woff2") format("woff2");
+}
+
 .pixelate {
   image-rendering: pixelate;
 }
