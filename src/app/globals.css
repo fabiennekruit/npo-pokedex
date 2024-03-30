@@ -92,5 +92,5 @@
 }
 
 .pixelate {
-  image-rendering: pixelate;
+  image-rendering: pixelated;
 }
