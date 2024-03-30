@@ -1,5 +1,10 @@
-import Image from "next/image";
+import { getAllPokemon } from "@/services/pokeApi";
 
-export default function Home() {
+const Home = async () => {
+  const pokemon = await getAllPokemon();
+
+  console.log(pokemon);
   return <main className="">Pokedex</main>;
-}
+};
+
+export default Home;
