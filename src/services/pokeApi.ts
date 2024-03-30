@@ -29,7 +29,6 @@ interface getAllPokemonResponse {
       pokemon_species_id: number;
       pokemon_v2_pokemonsprites: { sprites: string }[];
       pokemon_v2_pokemonabilities: { pokemon_v2_ability: { name: string } }[];
-      pokemon_v2_pokemoncries: { cries: string }[];
       pokemon_v2_pokemontypes: { pokemon_v2_type: { name: string } }[];
     }[];
   };
