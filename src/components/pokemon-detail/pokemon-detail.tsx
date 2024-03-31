@@ -27,62 +27,66 @@ const PokemonDetail = ({ pokemon }: { pokemon: PokemonDetail | null }) => {
           <h2 className="pt-12 pb-8 font-mabry-pro uppercase font-bold text-xl">
             {id}. {pokemonName}
           </h2>
-
-          <Carousel
-            className="max-w-[360px] mx-auto bg-white "
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-          >
-            <CarouselContent>
-              <CarouselItem className="flex justify-center">
-                <Image
-                  className="pixelate"
-                  width="200"
-                  height="200"
-                  src={spritesFront}
-                  alt={name}
-                />
-              </CarouselItem>
-              <CarouselItem className="flex justify-center">
-                <Image
-                  className="pixelate"
-                  width="200"
-                  height="200"
-                  src={spritesBack}
-                  alt={name}
-                />
-              </CarouselItem>
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-
-          <div className="pt-8">
-            <span>Abilities: {""}</span>
-            {abilities.map((ability, index) => {
-              return (
-                <span key={index}>
-                  {ability}
-                  {index < abilities.length - 1 ? ", " : ""}
-                </span>
-              );
-            })}
-          </div>
-          <div className="py-12 flex gap-4">
-            {types.map((type) => {
-              return (
-                <Link
-                  href={`/type/${type}`}
-                  key={type}
-                  className={buttonVariants({ variant: "default" })}
-                >
-                  {type}
-                </Link>
-              );
-            })}
-          </div>
+          {(spritesFront || spritesBack) && (
+            <Carousel
+              className="max-w-[360px] mx-auto bg-white "
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+            >
+              <CarouselContent>
+                <CarouselItem className="flex justify-center">
+                  <Image
+                    className="pixelate"
+                    width="200"
+                    height="200"
+                    src={spritesFront}
+                    alt={name}
+                  />
+                </CarouselItem>
+                <CarouselItem className="flex justify-center">
+                  <Image
+                    className="pixelate"
+                    width="200"
+                    height="200"
+                    src={spritesBack}
+                    alt={name}
+                  />
+                </CarouselItem>
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          )}
+          {abilities && (
+            <div className="pt-8">
+              <span>Abilities: {""}</span>
+              {abilities.map((ability, index) => {
+                return (
+                  <span key={index}>
+                    {ability}
+                    {index < abilities.length - 1 ? ", " : ""}
+                  </span>
+                );
+              })}
+            </div>
+          )}
+          {types && (
+            <div className="py-12 flex gap-4">
+              {types.map((type) => {
+                return (
+                  <Link
+                    href={`/type/${type}`}
+                    key={type}
+                    className={buttonVariants({ variant: "default" })}
+                  >
+                    {type}
+                  </Link>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     );
