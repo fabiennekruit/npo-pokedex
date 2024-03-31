@@ -73,6 +73,15 @@
   body {
     @apply bg-background text-foreground;
   }
+  h1 {
+    @apply text-3xl lg:text-5xl font-bold font-mabry-pro;
+  }
+  h2 {
+    @apply text-2xl lg:text-3xl font-bold font-mabry-pro;
+  }
+  h3 {
+    @apply font-bold font-mabry-pro;
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
