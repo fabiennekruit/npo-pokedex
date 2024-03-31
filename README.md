@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## PokeAPI assessment voor NPO ⚡️
 
-## Getting Started
+Alvast hartelijk bedankt voor het bekijken van mijn assessment! Ik heb er met veel plezier aan gewerkt.
 
-First, run the development server:
+<img width="781" alt="Screenshot 2024-03-31 at 11 20 22" src="https://github.com/fabiennekruit/npo-pokedex/assets/29234366/ddd1c137-d32f-4881-a0d2-75e596b65ce2">
 
-```bash
+### Set up
+
+```
+# Clone repository
+git clone https://github.com/fabiennekruit/npo-pokedex.git
+cd npo-pokedex
+
+# Install dependencies
+npm install
+
+# Run the app
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Key features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Home pagina met 150 pokémon
+- Detail pagina’s per pokémon
+- Detail pagina’s per type pokémon
+- 404 pagina’s
+- Responsive en accessible
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Stack
 
-## Learn More
+Ik heb gebruik gemaakt van NextJS, Typescript, GraphQL, Tailwind, ShadCN en Jest.
 
-To learn more about Next.js, take a look at the following resources:
+### Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- De test voor de pokémon detail pagina werkt niet door het automatisch transformeren van de image url door NextJS. Ik heb dit op korte termijn niet kunnen oplossen.
+- Elementen die ik zou willen toevoegen als ik meer tijd had: header met dropdown menu voor alle types, scroll to top functionaliteit, animaties
