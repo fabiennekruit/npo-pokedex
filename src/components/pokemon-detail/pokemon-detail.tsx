@@ -7,7 +7,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "../ui/carousel";
-import { Button } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 import Link from "next/link";
 import { capitalize } from "@/lib/utils";
 
@@ -73,8 +73,12 @@ const PokemonDetail = ({ pokemon }: { pokemon: PokemonDetail | null }) => {
           <div className="py-12 flex gap-4">
             {types.map((type) => {
               return (
-                <Link href={`/type/${type}`} key={type}>
-                  <Button>{type}</Button>
+                <Link
+                  href={`/type/${type}`}
+                  key={type}
+                  className={buttonVariants({ variant: "default" })}
+                >
+                  {type}
                 </Link>
               );
             })}
