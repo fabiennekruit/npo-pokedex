@@ -4,7 +4,6 @@ export interface Pokemon {
   name: string;
   id: number;
   spritesFront: string;
-  spritesBack: string;
   types: string[];
 }
 
@@ -16,9 +15,6 @@ const GET_ALL_POKEMON_QUERY = `query getAllPokemon {
     id
     spritesFront: pokemon_v2_pokemonsprites {
       frontDefault: sprites(path: "front_default")
-    }
-    spritesBack: pokemon_v2_pokemonsprites {
-      backDefault: sprites(path: "back_default")
     }
     pokemon_v2_pokemontypes {
       pokemon_v2_type {
@@ -35,9 +31,6 @@ interface getAllPokemonResponse {
       id: number;
       spritesFront: {
         frontDefault: string;
-      }[];
-      spritesBack: {
-        backDefault: string;
       }[];
       pokemon_v2_pokemontypes: { pokemon_v2_type: { name: string } }[];
     }[];
@@ -67,7 +60,6 @@ export const getAllPokemon = async () => {
         name: pokemon.name,
         id: pokemon.id,
         spritesFront: pokemon.spritesFront[0].frontDefault,
-        spritesBack: pokemon.spritesBack[0].backDefault,
         types: pokemon.pokemon_v2_pokemontypes.map(
           ({ pokemon_v2_type }) => pokemon_v2_type.name
         ),

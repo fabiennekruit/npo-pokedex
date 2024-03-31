@@ -13,6 +13,7 @@ import { capitalize } from "@/lib/utils";
 
 interface PokemonDetail extends Pokemon {
   abilities: string[];
+  spritesBack: string;
 }
 
 const PokemonDetail = ({ pokemon }: { pokemon: PokemonDetail | null }) => {
