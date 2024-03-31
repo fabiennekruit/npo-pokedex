@@ -43,34 +43,42 @@ interface getAllPokemonResponse {
     }[];
   };
 }
-
 export const getAllPokemon = async () => {
-  const response = await fetch(POKEAPI_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Method-Used": "graphiql",
-    },
-    body: JSON.stringify({ query: GET_ALL_POKEMON_QUERY, variables: {} }),
-  });
+  try {
+    const response = await fetch(POKEAPI_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Method-Used": "graphiql",
+      },
+      body: JSON.stringify({ query: GET_ALL_POKEMON_QUERY, variables: {} }),
+    });
 
-  const {
-    data: { pokemon_v2_pokemon },
-  }: getAllPokemonResponse = await response.json();
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    }
 
-  const normalizedData = pokemon_v2_pokemon.map((pokemon) => {
-    return {
-      name: pokemon.name,
-      id: pokemon.id,
-      spritesFront: pokemon.spritesFront[0].frontDefault,
-      spritesBack: pokemon.spritesBack[0].backDefault,
-      types: pokemon.pokemon_v2_pokemontypes.map(
-        ({ pokemon_v2_type }) => pokemon_v2_type.name
-      ),
-    };
-  });
+    const {
+      data: { pokemon_v2_pokemon },
+    }: getAllPokemonResponse = await response.json();
 
-  return normalizedData;
+    const normalizedData = pokemon_v2_pokemon.map((pokemon) => {
+      return {
+        name: pokemon.name,
+        id: pokemon.id,
+        spritesFront: pokemon.spritesFront[0].frontDefault,
+        spritesBack: pokemon.spritesBack[0].backDefault,
+        types: pokemon.pokemon_v2_pokemontypes.map(
+          ({ pokemon_v2_type }) => pokemon_v2_type.name
+        ),
+      };
+    });
+
+    return normalizedData;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
 };
 
 // get single pokemon
@@ -115,36 +123,50 @@ interface getPokemonResponse {
     }[];
   };
 }
-
 export const getPokemon = async (name: string) => {
-  const response = await fetch(POKEAPI_ENDPOINT, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Method-Used": "graphiql",
-    },
-    body: JSON.stringify({
-      query: GET_POKEMON_QUERY(name),
-      variables: {},
-    }),
-  });
+  try {
+    const response = await fetch(POKEAPI_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Method-Used": "graphiql",
+      },
+      body: JSON.stringify({
+        query: GET_POKEMON_QUERY(name),
+        variables: {},
+      }),
+    });
 
-  const {
-    data: { pokemon_v2_pokemon },
-  }: getPokemonResponse = await response.json();
+    if (!response.ok) {
+      throw new Error(
+        `Failed to fetch data for ${name}. Status: ${response.status}`
+      );
+    }
 
-  const normalizedData = {
-    name: pokemon_v2_pokemon[0].name,
-    id: pokemon_v2_pokemon[0].id,
-    spritesFront: pokemon_v2_pokemon[0].spritesFront[0].frontDefault,
-    spritesBack: pokemon_v2_pokemon[0].spritesBack[0].backDefault,
-    abilities: pokemon_v2_pokemon[0].pokemon_v2_pokemonabilities.map(
-      ({ pokemon_v2_ability }) => pokemon_v2_ability.name
-    ),
-    types: pokemon_v2_pokemon[0].pokemon_v2_pokemontypes.map(
-      ({ pokemon_v2_type }) => pokemon_v2_type.name
-    ),
-  };
+    const {
+      data: { pokemon_v2_pokemon },
+    }: getPokemonResponse = await response.json();
 
-  return normalizedData;
+    if (!pokemon_v2_pokemon || pokemon_v2_pokemon.length === 0) {
+      throw new Error(`No data found for ${name}.`);
+    }
+
+    const normalizedData = {
+      name: pokemon_v2_pokemon[0].name,
+      id: pokemon_v2_pokemon[0].id,
+      spritesFront: pokemon_v2_pokemon[0].spritesFront[0].frontDefault,
+      spritesBack: pokemon_v2_pokemon[0].spritesBack[0].backDefault,
+      abilities: pokemon_v2_pokemon[0].pokemon_v2_pokemonabilities.map(
+        ({ pokemon_v2_ability }) => pokemon_v2_ability.name
+      ),
+      types: pokemon_v2_pokemon[0].pokemon_v2_pokemontypes.map(
+        ({ pokemon_v2_type }) => pokemon_v2_type.name
+      ),
+    };
+
+    return normalizedData;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
+  }
 };
