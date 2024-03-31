@@ -1,6 +1,7 @@
 const FireIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -20,6 +21,7 @@ const FireIcon = () => {
 const WaterIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -39,6 +41,7 @@ const WaterIcon = () => {
 const BugIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       fill="none"
       height="24"
       viewBox="0 0 512 512"
@@ -58,6 +61,7 @@ const BugIcon = () => {
 const DarkIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -77,6 +81,7 @@ const DarkIcon = () => {
 const FlyingIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -96,6 +101,7 @@ const FlyingIcon = () => {
 const GrassIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       fill="none"
       height="24"
       viewBox="0 0 512 512"
@@ -115,6 +121,7 @@ const GrassIcon = () => {
 const GhostIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -134,6 +141,7 @@ const GhostIcon = () => {
 const NormalIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -153,6 +161,7 @@ const NormalIcon = () => {
 const FairyIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -172,6 +181,7 @@ const FairyIcon = () => {
 const ElectricIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -191,6 +201,7 @@ const ElectricIcon = () => {
 const FightingIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -210,6 +221,7 @@ const FightingIcon = () => {
 const IceIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -254,6 +266,7 @@ const IceIcon = () => {
 const RockIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -273,6 +286,7 @@ const RockIcon = () => {
 const SteelIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -292,6 +306,7 @@ const SteelIcon = () => {
 const PoisonIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -311,6 +326,7 @@ const PoisonIcon = () => {
 const GroundIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -330,6 +346,7 @@ const GroundIcon = () => {
 const PsychicIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
@@ -349,6 +366,7 @@ const PsychicIcon = () => {
 const DragonIcon = () => {
   return (
     <svg
+      data-testid="type-icon"
       width="24"
       className="fill-current text-blue-300"
       height="24"
